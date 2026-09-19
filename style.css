@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #e5d4ff, #cceeff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    color: #5a4055;
+}
+
+.container {
+    width: 90%;
+    max-width: 650px;
+    text-align: center;
+    padding: 40px 25px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(100, 60, 100, 0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+}
+
+.small-text {
+    font-size: 15px;
+    color: #a66a91;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 45px;
+    color: #e85d91;
+    text-shadow: 2px 3px 0 #ffd0e1;
+    animation: bounce 2s infinite;
+}
+
+h2 {
+    margin-top: 10px;
+    color: #805a91;
+}
+
+.intro {
+    margin: 20px auto;
+    font-size: 17px;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+/* Gift */
+
+.gift-container {
+    margin: 30px auto;
+    cursor: pointer;
+    width: 180px;
+}
+
+.gift-container p {
+    margin-top: 15px;
+    color: #9b5b86;
+    font-weight: bold;
+}
+
+.gift {
+    width: 130px;
+    height: 110px;
+    margin: auto;
+    position: relative;
+}
+
+.gift-box {
+    width: 130px;
+    height: 90px;
+    background: #ff7fa8;
+    position: absolute;
+    bottom: 0;
+    border-radius: 5px;
+}
+
+.gift-lid {
+    width: 145px;
+    height: 30px;
+    background: #ff5f91;
+    position: absolute;
+    top: 5px;
+    left: -7px;
+    border-radius: 6px;
+    z-index: 2;
+}
+
+.ribbon-vertical {
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: #ffe08a;
+    left: 55px;
+    z-index: 3;
+}
+
+.ribbon-horizontal {
+    position: absolute;
+    width: 145px;
+    height: 15px;
+    background: #ffe08a;
+    left: -7px;
+    top: 12px;
+    z-index: 4;
+}
+
+/* Message */
+
+.message {
+    display: none;
+    margin-top: 25px;
+    padding: 25px;
+    background: #fff5fa;
+    border-radius: 25px;
+    border: 3px dashed #f29abb;
+    animation: appear 0.8s ease;
+}
+
+.message h2 {
+    color: #e85d91;
+    margin-bottom: 20px;
+}
+
+.message p {
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+.last-message {
+    font-weight: bold;
+    color: #d65388;
+}
+
+.cake {
+    font-size: 70px;
+    margin-top: 15px;
+    animation: cakeBounce 1s infinite alternate;
+}
+
+/* Button */
+
+button {
+    margin-top: 25px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 30px;
+    background: #e85d91;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 7px 15px rgba(232, 93, 145, 0.3);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #d94d82;
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 13px;
+    color: #9b7892;
+}
+
+/* Floating hearts */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 25px;
+    animation: floatUp 5s linear forwards;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Animations */
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes cakeBounce {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 30px 18px;
+    }
+
+    h1 {
+        font-size: 35px;
+    }
+
+    .intro {
+        font-size: 15px;
+    }
+
+    .message {
+        padding: 18px;
+    }
+}
