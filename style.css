@@ -1,0 +1,399 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  background:
+    radial-gradient(circle at 20% 15%, #fff 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 20%, #fff 0 2px, transparent 3px),
+    linear-gradient(135deg, #d9c7ff, #ffd8ea 48%, #cceeff);
+  background-size: 110px 110px, 150px 150px, cover;
+  color: #634d69;
+  display: flex;
+  justify-content: center;
+  padding: 30px 12px;
+  overflow-x: hidden;
+}
+
+.card {
+  width: min(920px, 96vw);
+  min-height: 780px;
+  text-align: center;
+  padding: 35px 24px 28px;
+  border-radius: 34px;
+  background: rgba(255,255,255,.78);
+  border: 3px solid rgba(255,255,255,.8);
+  box-shadow: 0 20px 60px rgba(104,65,120,.22);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  position: relative;
+}
+
+.small {
+  color: #a36a98;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-size: clamp(36px, 7vw, 64px);
+  color: #e95f99;
+  text-shadow: 3px 4px 0 #ffd2e4;
+  animation: title 2s ease-in-out infinite;
+}
+
+h2 {
+  color: #805b91;
+  margin-top: 5px;
+}
+
+.intro {
+  margin: 15px auto;
+  line-height: 1.6;
+}
+
+/* The character stage */
+.scene {
+  height: 330px;
+  max-width: 800px;
+  margin: 12px auto 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 50% 75%, rgba(255,255,255,.8), transparent 45%),
+    linear-gradient(180deg, rgba(220,205,255,.65), rgba(255,220,236,.75));
+  border: 2px dashed #efacd0;
+}
+
+.character-wrap {
+  position: absolute;
+  bottom: 12px;
+  width: 220px;
+  height: 260px;
+  z-index: 2;
+}
+
+.boy-wrap {
+  left: 8%;
+}
+
+.girl-wrap {
+  right: 8%;
+}
+
+.character {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 9px 5px rgba(90,60,100,.18));
+  image-rendering: pixelated;
+}
+
+.boy {
+  animation: boyIdle 1.7s ease-in-out infinite;
+}
+
+.girl {
+  animation: girlIdle 2s ease-in-out infinite;
+}
+
+.character-label {
+  position: absolute;
+  right: -5px;
+  top: 38px;
+  z-index: 4;
+  font-size: 26px;
+  animation: flowerPulse 1.2s ease-in-out infinite;
+}
+
+.giggle {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  opacity: 0;
+  transform: scale(.6) rotate(-8deg);
+  background: white;
+  border: 2px solid #f19ac1;
+  color: #d6548b;
+  border-radius: 18px;
+  padding: 7px 12px;
+  font-weight: bold;
+  z-index: 5;
+}
+
+.giggle.show {
+  animation: giggleBubble .9s ease-out;
+}
+
+.heart-burst {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%) scale(.2);
+  opacity: 0;
+  font-size: 28px;
+  z-index: 5;
+  white-space: nowrap;
+}
+
+.heart-burst.show {
+  animation: burst 1.2s ease-out;
+}
+
+.scene-hint {
+  color: #a16b94;
+  font-weight: bold;
+  margin-top: 7px;
+}
+
+/* Gift */
+.gift-container {
+  width: 180px;
+  margin: 15px auto 10px;
+  cursor: pointer;
+  position: relative;
+  z-index: 8;
+  transition: transform .2s;
+}
+
+.gift-container:hover {
+  transform: scale(1.06);
+}
+
+.gift {
+  width: 130px;
+  height: 105px;
+  margin: auto;
+  position: relative;
+  animation: giftBounce 1.7s ease-in-out infinite;
+}
+
+.gift-box {
+  width: 130px;
+  height: 82px;
+  position: absolute;
+  bottom: 0;
+  background: #ff78a6;
+  border-radius: 7px;
+}
+
+.gift-lid {
+  width: 145px;
+  height: 29px;
+  position: absolute;
+  top: 5px;
+  left: -7px;
+  background: #ff5b91;
+  border-radius: 7px;
+  z-index: 2;
+}
+
+.ribbon-v {
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  left: 55px;
+  background: #ffe18a;
+  z-index: 3;
+}
+
+.ribbon-h {
+  position: absolute;
+  width: 145px;
+  height: 14px;
+  left: -7px;
+  top: 12px;
+  background: #ffe18a;
+  z-index: 4;
+}
+
+.message {
+  display: none;
+  max-width: 600px;
+  margin: 18px auto;
+  padding: 24px;
+  background: #fff5fa;
+  border: 3px dashed #ef9fc1;
+  border-radius: 25px;
+  animation: appear .7s ease;
+}
+
+.message h2 {
+  color: #e85d91;
+  margin-bottom: 15px;
+}
+
+.message p {
+  line-height: 1.65;
+  margin: 10px 0;
+}
+
+.last {
+  color: #d65388;
+  font-weight: bold;
+}
+
+.cake {
+  font-size: 65px;
+  animation: cake .8s ease-in-out infinite alternate;
+}
+
+button {
+  border: 0;
+  border-radius: 30px;
+  padding: 14px 28px;
+  margin-top: 8px;
+  background: #e85d91;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(232,93,145,.28);
+}
+
+button:hover {
+  transform: scale(1.07);
+}
+
+.footer {
+  margin-top: 20px;
+  color: #9c7895;
+  font-size: 13px;
+}
+
+/* Animation: boy walks toward the girl, then offers the flower */
+.scene.giving .boy-wrap {
+  animation: boyGive 2.4s ease-in-out forwards;
+}
+
+.scene.giving .boy {
+  animation: boyHand 2.4s ease-in-out forwards;
+}
+
+.scene.giving .girl {
+  animation: girlGiggle 2.4s ease-in-out forwards;
+}
+
+.scene.giving .character-label {
+  animation: flowerGive 2.4s ease-in-out forwards;
+}
+
+@keyframes boyGive {
+  0% { transform: translateX(0); }
+  48% { transform: translateX(125px); }
+  68% { transform: translateX(145px); }
+  100% { transform: translateX(125px); }
+}
+
+@keyframes boyHand {
+  0%, 35% { transform: rotate(0) translateY(0); }
+  50% { transform: rotate(-5deg) translateY(-7px); }
+  68% { transform: rotate(4deg) translateY(-3px); }
+  100% { transform: rotate(0) translateY(0); }
+}
+
+@keyframes flowerGive {
+  0%, 45% { transform: translate(0,0) scale(1); }
+  65% { transform: translate(15px,-5px) scale(1.18); }
+  100% { transform: translate(15px,-5px) scale(1); }
+}
+
+@keyframes girlGiggle {
+  0%, 50% { transform: translateX(0) rotate(0); }
+  58% { transform: translateX(5px) rotate(-4deg); }
+  64% { transform: translateX(-5px) rotate(4deg); }
+  70% { transform: translateX(4px) rotate(-3deg); }
+  76%, 100% { transform: translateX(0) rotate(0); }
+}
+
+@keyframes giggleBubble {
+  0% { opacity: 0; transform: scale(.6) rotate(-8deg); }
+  30% { opacity: 1; transform: scale(1.08) rotate(5deg); }
+  75% { opacity: 1; transform: scale(1) rotate(-2deg); }
+  100% { opacity: 0; transform: scale(.8) rotate(0); }
+}
+
+@keyframes burst {
+  0% { opacity: 0; transform: translate(-50%,-50%) scale(.2); }
+  25% { opacity: 1; transform: translate(-50%,-70%) scale(1.1); }
+  100% { opacity: 0; transform: translate(-50%,-120%) scale(1.6); }
+}
+
+@keyframes boyIdle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes girlIdle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes flowerPulse {
+  0%, 100% { transform: scale(1) rotate(-4deg); }
+  50% { transform: scale(1.12) rotate(4deg); }
+}
+
+@keyframes giftBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes cake {
+  from { transform: translateY(0); }
+  to { transform: translateY(-7px); }
+}
+
+@keyframes title {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.floating {
+  position: fixed;
+  bottom: -30px;
+  z-index: 10;
+  pointer-events: none;
+  animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .card { padding: 28px 12px; }
+
+  .scene {
+    height: 280px;
+  }
+
+  .character-wrap {
+    width: 155px;
+    height: 190px;
+  }
+
+  .boy-wrap { left: -5%; }
+  .girl-wrap { right: -5%; }
+
+  @keyframes boyGive {
+    0% { transform: translateX(0); }
+    48% { transform: translateX(55px); }
+    68% { transform: translateX(70px); }
+    100% { transform: translateX(55px); }
+  }
+}
